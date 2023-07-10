@@ -1,0 +1,65 @@
+#root {
+	text-align: center;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+	justify-content: center;
+}
+
+img {
+	width: 250px;
+}
+
+h1 {
+	position: fixed;
+	background-color: red;
+	color: #ffde00;
+	text-shadow: 5px 5px 2px #354cca;
+	font-size: xx-large;
+	margin: 0%;
+	padding: 50px;
+}
+
+h2 {
+	background-color: purple;
+}
+
+ul {
+	padding: 2rem;
+}
+
+li {
+	list-style-type: none;
+	justify-content: center;
+	width: 250px;
+	padding: 10px;
+	margin-left: 15%;
+}
+
+.factFile {
+	background-color: darkgray;
+	border-radius: 10%;
+	max-height: fit-content;
+}
+
+#fire,
+#water,
+#grass,
+#all {
+	font-size: x-large;
+	background-color: red;
+}
+
+#water {
+	background-color: blue;
+}
+
+#grass {
+	background-color: green;
+}
+
+#all {
+	background-color: grey;
+}
