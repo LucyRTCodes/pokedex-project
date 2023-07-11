@@ -22,10 +22,10 @@ function PokemonList({ type }) {
 	return (
 		<>
 			<ul>
-				<h2>{type ? type.toUpperCase() : "ALL"} POKEMON</h2>
+				<h2 id="pokemon-type">{type ? type.toUpperCase() : "ALL"} POKEMON</h2>
 				<div className="list">
 					{pokemonList.slice(start, start + 20).map((pokemon, index) => {
-						return <Pokemon key={index} pokemon={pokemon} type={type} />;
+						return <Pokemon key={index} pokemon={pokemon} chosen={type} />;
 					})}
 				</div>
 			</ul>

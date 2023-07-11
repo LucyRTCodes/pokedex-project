@@ -1,5 +1,9 @@
 function Header() {
-	return <h1>Pokedex!</h1>;
+	return (
+		<div id="banner">
+			<h1>Pokedex!</h1>
+		</div>
+	);
 }
 
 export default Header;

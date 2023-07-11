@@ -4,7 +4,7 @@ import { MdHeight, MdAddCircle } from "react-icons/md";
 import { FaWeightHanging } from "react-icons/fa";
 import { GiMineExplosion } from "react-icons/gi";
 
-function Pokemon({ pokemon, type }) {
+function Pokemon({ pokemon, chosen }) {
 	const pokemonName = pokemon.pokemon ? pokemon.pokemon.name : pokemon.name;
 	const [isLoading, setIsLoading] = useState(true);
 	const [info, setInfo] = useState(pokemonName);
@@ -12,7 +12,7 @@ function Pokemon({ pokemon, type }) {
 	const [additional, setAdditional] = useState("collapsed");
 
 	useEffect(() => {
-		fetchApi(type, pokemonName).then((pokemon) => {
+		fetchApi(chosen, pokemonName).then((pokemon) => {
 			setInfo(pokemon);
 			setIsLoading(false);
 		});
@@ -28,7 +28,7 @@ function Pokemon({ pokemon, type }) {
 		<li>
 			<section className="factFile">
 				<h2
-					className="pokemonName"
+					className={`pokemonName ${chosen ? chosen : types[0].type.name}`}
 					onClick={(e) => {
 						additional === "collapsed"
 							? setAdditional("expanded")
@@ -45,17 +45,25 @@ function Pokemon({ pokemon, type }) {
 					alt={`${pokemonName}'s ${direction}`}
 				/>
 
-				<div className={`additional-info ${additional}`}>
+				<div
+					className={`additional-info ${additional} ${
+						chosen ? chosen : types[0].type.name
+					}`}
+				>
 					<div id="additional-types">
-						<p>Additional type</p>
+						<p>
+							Additional
+							{types.length > 1 ? " Types" : " Type"}
+						</p>
 						<strong>
 							<p id="types">
 								<MdAddCircle size={20} />
-								{types[1]
-									? ` ${types[1].type.name[0].toUpperCase()}${types[1].type.name.slice(
-											1
-									  )}`
-									: "None"}
+								{types.length === 1
+									? types.map((type) => type.type.name)
+									: types
+											.map((type) => type.type.name)
+											.filter((type) => type !== chosen)
+											.join(" ")}
 							</p>
 						</strong>
 					</div>

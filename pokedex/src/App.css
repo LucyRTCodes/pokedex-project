@@ -13,26 +13,45 @@ img {
 	width: 150px;
 }
 
-h1 {
-	height: 83px;
+#banner {
+	padding: 50px;
+	text-align: center;
+	z-index: 0;
+	height: 80px;
+	width: 2000px;
 	position: fixed;
-	background-color: red;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 0, 0, 0.8);
+
+	border-bottom-right-radius: 40px;
+}
+
+h1 {
+	position: fixed;
+	top: 0;
+	left: 0;
 	color: #ffde00;
 	text-shadow: 5px 5px 2px #354cca;
 	font-size: xx-large;
 	margin: 0%;
-	padding: 50px;
-	border-bottom-right-radius: 40px;
+	padding: 53px;
+	padding-left: 10px;
+	margin-bottom: 20px;
+	width: 300px;
+	background: red;
 }
 
 h2 {
-	background-color: purple;
+	background-color: darkslategray;
 	margin: 0%;
+	padding-right: 325px;
 	margin-bottom: 50px;
 	height: 55px;
 }
 
 ul {
+	margin-top: 200px;
 	padding: 2rem;
 }
 
@@ -67,23 +86,72 @@ li {
 	padding-right: 10px;
 }
 
-#fire,
-#water,
-#grass,
-#all {
-	font-size: x-large;
-	background-color: red;
+.fire {
+	background-color: #fe9c53;
 }
 
-#water {
-	background-color: blue;
+.water {
+	background-color: #4d90d6;
 }
 
-#grass {
-	background-color: green;
+.grass {
+	background-color: #64bb5c;
 }
 
-#all {
+.normal {
+	background-color: #9099a2;
+}
+.fighting {
+	background-color: #ce3f6a;
+}
+.flying {
+	background-color: #8fa9dc;
+}
+.poison {
+	background-color: #ab68ca;
+}
+.ground {
+	background-color: #db7742;
+}
+.rock {
+	background-color: #c8b78b;
+}
+.bug {
+	background-color: #90c02c;
+}
+.ghost {
+	background-color: #5269ac;
+}
+.steel {
+	background-color: #56909f;
+}
+.electric {
+	background-color: #f4d23b;
+	color: black;
+}
+.psychic {
+	background-color: #f97077;
+}
+.ice {
+	background-color: #73cebf;
+}
+.dragon {
+	background-color: #096dc3;
+}
+.dark {
+	background-color: #5a5363;
+}
+.fairy {
+	background-color: #ec90e7;
+}
+.unknown {
+	background-color: white;
+	color: black;
+}
+.shadow {
+	background-color: black;
+}
+.all {
 	background-color: grey;
 }
 
@@ -106,7 +174,6 @@ p {
 	display: grid;
 	grid-template-columns: repeat(2, 50%);
 	grid-template-rows: repeat(2, 50%);
-	background-color: purple;
 	grid-column: 1/3;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
@@ -131,7 +198,28 @@ p {
 	height: fit-content;
 }
 
-.buttons {
+#buttons {
+	display: grid;
+	grid-template-columns: repeat(11, auto);
+	margin-left: 50px;
+	z-index: 1;
 	position: fixed;
-	/* display: flex; */
+	top: 10px;
+	left: 350px;
+}
+
+#buttons > button {
+	border: 1px black;
+}
+
+#pokemon-type {
+	text-align: center;
+	background-color: rgba(255, 0, 0);
+	width: 710px;
+	position: fixed;
+	top: 110px;
+	left: 350px;
+	padding: 0%;
+	padding-top: 15px;
+	z-index: 3;
 }
