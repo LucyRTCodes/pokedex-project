@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import fetchApi from "../fetchApi";
-import { MdHeight, MdAddCircle } from "react-icons/md";
+import { MdHeight } from "react-icons/md";
 import { FaWeightHanging } from "react-icons/fa";
-import { GiMineExplosion } from "react-icons/gi";
 
 function Pokemon({ pokemon, chosen }) {
 	const pokemonName = pokemon.pokemon ? pokemon.pokemon.name : pokemon.name;
@@ -57,13 +56,20 @@ function Pokemon({ pokemon, chosen }) {
 						</p>
 						<strong>
 							<p id="types">
-								<MdAddCircle size={20} />
 								{types.length === 1
-									? types.map((type) => type.type.name)
+									? types.map(
+											(type) =>
+												type.type.name[0].toUpperCase() +
+												type.type.name.slice(1)
+									  )
 									: types
-											.map((type) => type.type.name)
+											.map(
+												(type) =>
+													type.type.name[0].toUpperCase() +
+													type.type.name.slice(1)
+											)
 											.filter((type) => type !== chosen)
-											.join(" ")}
+											.join(", ")}
 							</p>
 						</strong>
 					</div>

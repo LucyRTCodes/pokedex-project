@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import fetchApi from "../fetchApi";
 
-function Buttons({ setType }) {
+function Buttons({ setGroup, setType }) {
 	const [types, setTypes] = useState(["fire", "water", "grass"]);
 	const [isLoading, setIsLoading] = useState(true);
 
@@ -31,6 +31,7 @@ function Buttons({ setType }) {
 						key={index}
 						className={type}
 						onClick={(e) => {
+							setGroup("group");
 							setType(type);
 						}}
 					>
@@ -42,6 +43,7 @@ function Buttons({ setType }) {
 			<button
 				className="all"
 				onClick={(e) => {
+					setGroup("group");
 					setType(null);
 				}}
 			>
