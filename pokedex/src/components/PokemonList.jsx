@@ -29,8 +29,8 @@ function PokemonList({ type }) {
 					})}
 				</div>
 			</ul>
-			<PreviousButton />
-			<NextButton setStart={setStart} />
+			<PreviousButton setStart={setStart} />
+			<NextButton setStart={setStart} pokemonList={pokemonList} />
 		</>
 	);
 }
