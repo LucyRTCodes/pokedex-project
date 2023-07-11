@@ -19,7 +19,22 @@ function Individual({ newPokemon }) {
 				setIsLoading(false);
 			})
 			.catch((err) => {
-				return <p>{err}</p>;
+				return (
+					<div
+						style={{
+							position: "fixed",
+							top: 300,
+							left: 750,
+							background: "white",
+							color: "black",
+							fontSize: 20,
+							padding: 10,
+						}}
+					>
+						<Buttons setGroup={setGroup} setType={setType} />
+						<p>404: Not Found</p>
+					</div>
+				);
 			});
 	}, [newPokemon]);
 
