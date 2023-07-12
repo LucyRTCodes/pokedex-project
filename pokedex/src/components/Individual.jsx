@@ -5,9 +5,11 @@ import { GiMineExplosion } from "react-icons/gi";
 
 function Individual({ newPokemon }) {
 	const [isLoading, setIsLoading] = useState(true);
+	const [isError, setIsError] = useState(false);
 	const [info, setInfo] = useState(null);
 	const [direction, setDirection] = useState("front");
 	const [additional, setAdditional] = useState("collapsed");
+	const [response, setResponse] = useState("");
 
 	useEffect(() => {
 		fetch(`https://pokeapi.co/api/v2/pokemon/${newPokemon.toLowerCase()}`)
@@ -16,25 +18,13 @@ function Individual({ newPokemon }) {
 			})
 			.then((data) => {
 				setInfo(data);
-				setIsLoading(false);
 			})
 			.catch((err) => {
-				return (
-					<div
-						style={{
-							position: "fixed",
-							top: 300,
-							left: 750,
-							background: "white",
-							color: "black",
-							fontSize: 20,
-							padding: 10,
-						}}
-					>
-						<Buttons setGroup={setGroup} setType={setType} />
-						<p>404: Not Found</p>
-					</div>
-				);
+				setIsError(true);
+				setResponse("Pokemon not found");
+			})
+			.finally(() => {
+				setIsLoading(false);
 			});
 	}, [newPokemon]);
 
@@ -52,6 +42,24 @@ function Individual({ newPokemon }) {
 				}}
 			>
 				Loading...
+			</p>
+		);
+
+	if (isError)
+		return (
+			<p
+				style={{
+					position: "fixed",
+					top: 300,
+					left: 750,
+					background: "red",
+					color: "white",
+					fontSize: 20,
+					padding: 10,
+					borderRadius: 20,
+				}}
+			>
+				Pokemon not found
 			</p>
 		);
 	const { name, sprites, types, height, weight, species, moves } = info;
@@ -140,6 +148,20 @@ function Individual({ newPokemon }) {
 					})}
 				</div>
 			</section>
+			<div
+				style={{
+					position: "fixed",
+					top: 300,
+					left: 750,
+					background: "white",
+					color: "black",
+					fontSize: 20,
+					padding: 10,
+				}}
+			>
+				<Buttons setGroup={setGroup} setType={setType} />
+				<p>{response}</p>
+			</div>
 		</div>
 	);
 }
