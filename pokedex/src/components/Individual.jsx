@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Buttons from "./Buttons";
 import { MdHeight, MdAddCircle } from "react-icons/md";
 import { FaWeightHanging } from "react-icons/fa";
 import { GiMineExplosion } from "react-icons/gi";
