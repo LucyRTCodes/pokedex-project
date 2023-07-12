@@ -16,7 +16,11 @@ function App() {
 			<>
 				<Header />
 				<Buttons setGroup={setGroup} setType={setType} />
-				<SearchBar setNewPokemon={setNewPokemon} setGroup={setGroup} />
+				<SearchBar
+					setNewPokemon={setNewPokemon}
+					setGroup={setGroup}
+					setType={setType}
+				/>
 				<PokemonList type={type} />
 			</>
 		);

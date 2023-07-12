@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import Buttons from "./Buttons";
 import { MdHeight, MdAddCircle } from "react-icons/md";
 import { FaWeightHanging } from "react-icons/fa";
 import { GiMineExplosion } from "react-icons/gi";
 
-function Individual({ newPokemon }) {
+function Individual({ newPokemon, setGroup, setType }) {
 	const [isLoading, setIsLoading] = useState(true);
 	const [isError, setIsError] = useState(false);
 	const [info, setInfo] = useState(null);
@@ -148,20 +149,6 @@ function Individual({ newPokemon }) {
 					})}
 				</div>
 			</section>
-			<div
-				style={{
-					position: "fixed",
-					top: 300,
-					left: 750,
-					background: "white",
-					color: "black",
-					fontSize: 20,
-					padding: 10,
-				}}
-			>
-				<Buttons setGroup={setGroup} setType={setType} />
-				<p>{response}</p>
-			</div>
 		</div>
 	);
 }
