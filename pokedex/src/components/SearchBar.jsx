@@ -8,24 +8,24 @@ function SearchBar({ setGroup, setNewPokemon }) {
 			id="search-bar"
 			onSubmit={(e) => {
 				e.preventDefault();
-				if (!input.length) {
-					return (
-						<p
-							style={{
-								position: "fixed",
-								top: 300,
-								left: 750,
-								background: "red",
-								color: "white",
-								fontSize: 20,
-								padding: 10,
-								borderRadius: 20,
-							}}
-						>
-							Enter a pokemon
-						</p>
-					);
-				}
+				// if (!input.length) {
+				// 	return (
+				// 		<p
+				// 			style={{
+				// 				position: "fixed",
+				// 				top: 300,
+				// 				left: 750,
+				// 				background: "red",
+				// 				color: "white",
+				// 				fontSize: 20,
+				// 				padding: 10,
+				// 				borderRadius: 20,
+				// 			}}
+				// 		>
+				// 			Enter a pokemon
+				// 		</p>
+				// 	);
+				// }
 				setGroup("individual");
 				setNewPokemon(input);
 				setInput("");
