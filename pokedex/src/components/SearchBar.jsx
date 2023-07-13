@@ -34,6 +34,7 @@ function SearchBar({ setGroup, setNewPokemon }) {
 			<label htmlFor="search-box"></label>
 			<input
 				id="search-box"
+				value={input}
 				onChange={(e) => {
 					setInput(e.target.value);
 				}}
