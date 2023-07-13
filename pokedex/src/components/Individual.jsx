@@ -18,6 +18,7 @@ function Individual({ newPokemon, setGroup, setType }) {
 			})
 			.then((data) => {
 				setInfo(data);
+				setIsError(false);
 			})
 			.catch((err) => {
 				setIsError(true);
